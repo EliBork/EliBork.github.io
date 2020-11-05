@@ -33,16 +33,16 @@ class Walker {
     this.px = x;
     this.py = y;
     this.color = color(0);
-    this.velocityX = random(-3, 3);
-    this.velocityY = random(-3,3);
+    this.velocityX = randomLargerNum(-4, 4);
+    this.velocityY = randomLargerNum(-4, 4);
     this.draw();
   }
   isOut () {
     return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
   }
   velocity () {
-    this.velocityX += map(noise(this.x * 0.003, this.y * 0.003, millis() * 0.001), 0, 1, -1, 1);
-    this.velocityY += map(noise(this.y * 0.003, this.x * 0.003, millis() * 0.001), 0, 1, -1, 1);
+    this.velocityX += map(noise(this.x * 0.0015, this.y * 0.0015, millis() * 0.0001), 0, 1, -1, 1);
+    this.velocityY += map(noise(this.y * 0.0015, this.x * 0.0015, millis() * 0.0001), 0, 1, -1, 1);
   }
   move () {  
     this.x += this.velocityX;
@@ -75,7 +75,7 @@ function draw () {
 }
 
 function setNum(){
-  num = random(2, 1000);
+  num = random(2, 1200);
   
  
 }
@@ -116,6 +116,16 @@ function randomColorB(){
   
   let cTwo = color('rgba(255, 220, 220, 0.4)');
   return lerpColor(cOne, cTwo, random());
+}
+
+function randomLargerNum(low, high){
+  var i = random(low);
+  var j = random(high);
+  if(abs(i) > abs(j)){
+    return i;
+  } else{
+    return j;
+  }
 }
 
 
