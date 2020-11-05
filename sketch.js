@@ -7,7 +7,8 @@ function setup () {
   createCanvas(size, size);
   setNum();
   fillWalkers(width / 2, height / 2);  
-  stroke(0, 100);
+  background(0);
+  stroke(255, 100);
   draw();
 }
 function windowResized () {
