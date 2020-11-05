@@ -4,7 +4,7 @@ let walkersA = [];
 let walkersB = [];
 function setup () {
   const size = floor(min(windowWidth, windowHeight) * 0.9);
-  createCanvas(size, size);
+  createCanvas(windowWidth, windowHeight);
   setNum();
   fillWalkers(width / 2, height / 2);  
   background(0);
