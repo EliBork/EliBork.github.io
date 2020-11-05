@@ -83,10 +83,10 @@ function setNum(){
 function fillWalkers(x, y){
   walkersA = [];
   walkersB = [];
-  var xA = random(x -60, x - 200);
-  var yA = random(y - 200, y + 200);
-   var xB = random(x + 60, x + 200);
-  var yB = random(y - 200, y + 200);
+  var xA = random(x - 60, x - width / 4);
+  var yA = random(y - 200, y + height / 4);
+   var xB = random(x + 60, x + width / 4);
+  var yB = random(y - 200, y + height / 4);
   
   if(xA > width || xA < 0 || yA > height || yA < 0){
      if(xB > width || xB < 0 || yB > height || yB < 0 || lastWasOut){
