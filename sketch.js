@@ -18,6 +18,8 @@ function windowResized () {
 }
 function mouseClicked () {
   clear();
+  background(0);
+  stroke(255, 100);
   setNum();
   walkers = [];
   noiseSeed(random(50));
