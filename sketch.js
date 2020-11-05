@@ -8,7 +8,6 @@ function setup () {
   setNum();
   fillWalkers(width / 2, height / 2);  
   background(0);
-  stroke(255, 100);
   draw();
 }
 function windowResized () {
@@ -18,8 +17,8 @@ function windowResized () {
 }
 function mouseClicked () {
   clear();
+  
   background(0);
-  stroke(255, 100);
   setNum();
   walkers = [];
   noiseSeed(random(50));
@@ -27,13 +26,15 @@ function mouseClicked () {
 }
 
 class Walker {
+  
   constructor (x, y) {
     this.x = x;
     this.y = y;
     this.px = x;
     this.py = y;
-    this.velocityX = random(-5, 5);
-    this.velocityY = random(-5, 5);
+    this.color = color(0);
+    this.velocityX = random(-3, 3);
+    this.velocityY = random(-3,3);
     this.draw();
   }
   isOut () {
@@ -49,6 +50,8 @@ class Walker {
   }
   draw () {
     line(this.x, this.y, this.px, this.py);
+    strokeWeight(1);
+    stroke(this.color);
     this.px = this.x;
     this.py = this.y;
   }
@@ -72,11 +75,9 @@ function draw () {
 }
 
 function setNum(){
-  num = random(2, 100);
+  num = random(2, 1000);
   
-  if(num < 35 || num > 65){
-    num = random(2, 100);
-  }
+ 
 }
 
 function fillWalkers(x, y){
@@ -97,9 +98,27 @@ function fillWalkers(x, y){
   lastWasOut = false;
   for (let i = 0; i < num; i++) {
     walkersA.push(new Walker(xA, yA));
+    walkersA[i].color = randomColorA();
     walkersB.push(new Walker(xB, yB));
+    walkersB[i].color = randomColorB();
   }
 }
+
+function randomColorA(){
+  let cOne = color('rgba(161, 220, 255, 0.4)');
+  
+  let cTwo = color('rgba(161, 180, 255, 0.4)');
+  return lerpColor(cOne, cTwo, random());
+}
+
+function randomColorB(){
+  let cOne = color('rgba(255, 153, 160, 0.4)');
+  
+  let cTwo = color('rgba(255, 220, 220, 0.4)');
+  return lerpColor(cOne, cTwo, random());
+}
+
+
 
 
 //TODO
