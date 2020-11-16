@@ -33,8 +33,8 @@ class Walker {
     this.px = x;
     this.py = y;
     this.color = color(0);
-    this.velocityX = randomLargerNum(-4, 4);
-    this.velocityY = randomLargerNum(-4, 4);
+    this.velocityX = randomLargerNum(-5, 5);
+    this.velocityY = randomLargerNum(-5, 5);
     this.draw();
   }
   isOut () {
@@ -50,8 +50,10 @@ class Walker {
   }
   draw () {
     line(this.x, this.y, this.px, this.py);
-    strokeWeight(1);
+    strokeWeight(1.7);
     stroke(this.color);
+    strokeJoin(ROUND);
+    strokeCap(SQUARE);
     this.px = this.x;
     this.py = this.y;
   }
@@ -75,7 +77,7 @@ function draw () {
 }
 
 function setNum(){
-  num = random(2, 1200);
+  num = random(2, 900);
   
  
 }
@@ -105,16 +107,16 @@ function fillWalkers(x, y){
 }
 
 function randomColorA(){
-  let cOne = color('rgba(161, 220, 255, 0.4)');
+  let cOne = color('rgba(70, 126, 255, 0.2)');
   
-  let cTwo = color('rgba(161, 180, 255, 0.4)');
+  let cTwo = color('rgba(129, 233, 255, 0.2)');
   return lerpColor(cOne, cTwo, random());
 }
 
 function randomColorB(){
-  let cOne = color('rgba(255, 153, 160, 0.4)');
+  let cOne = color('rgba(255, 103, 103, 0.2)');
   
-  let cTwo = color('rgba(255, 220, 220, 0.4)');
+  let cTwo = color('rgba(255, 190, 130, 0.2)');
   return lerpColor(cOne, cTwo, random());
 }
 
