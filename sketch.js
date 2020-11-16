@@ -41,8 +41,8 @@ class Walker {
     return (this.x < 0 || this.x > width || this.y < 0 || this.y > height);
   }
   velocity () {
-    this.velocityX += map(noise(this.x * 0.0015, this.y * 0.0015, millis() * 0.0001), 0, 1, -1, 1);
-    this.velocityY += map(noise(this.y * 0.0015, this.x * 0.0015, millis() * 0.0001), 0, 1, -1, 1);
+    this.velocityX += map(noise(this.x * 0.0015, this.y * 0.0015, millis() * 0.0001), 0, 1, -1, 1) * 0.8;
+    this.velocityY += map(noise(this.y * 0.0015, this.x * 0.0015, millis() * 0.0001), 0, 1, -1, 1) * 0.8;
   }
   move () {  
     this.x += this.velocityX;
